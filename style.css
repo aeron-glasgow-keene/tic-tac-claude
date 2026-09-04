@@ -1,0 +1,95 @@
+:root {
+  --ink: #1f2933;
+  --paper: #fbf9f5;
+  --line: #1f2933;
+  --x-color: #c1440e;
+  --o-color: #1c6e5e;
+  --muted: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Georgia", "Iowan Old Style", serif;
+}
+
+main {
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 2.25rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
+}
+
+#status {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  min-height: 1.5em;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 96px);
+  grid-template-rows: repeat(3, 96px);
+  gap: 6px;
+  background: var(--line);
+  border: 6px solid var(--line);
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.cell {
+  background: var(--paper);
+  border: none;
+  font-size: 2.75rem;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.cell:hover:not(:disabled) {
+  background: #f0ece3;
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.x {
+  color: var(--x-color);
+}
+
+.cell.o {
+  color: var(--o-color);
+}
+
+#reset {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.25rem;
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  cursor: pointer;
+}
+
+#reset:hover {
+  opacity: 0.85;
+}
