@@ -66,7 +66,6 @@ function handleClick(index: number) {
 
 function render() {
   boardEl.innerHTML = "";
-  boardEl.style.position = "relative";
 
   board.forEach((cell, index) => {
     const btn = document.createElement("button");
@@ -86,13 +85,8 @@ function render() {
       "svg",
     );
 
+    line.classList.add("winning-line");
     line.setAttribute("viewBox", "0 0 3 3");
-    line.style.position = "absolute";
-    line.style.inset = "0";
-    line.style.width = "100%";
-    line.style.height = "100%";
-    line.style.pointerEvents = "none";
-    line.style.zIndex = "2";
 
     const startX = (start % 3) + 0.5;
     const startY = Math.floor(start / 3) + 0.5;
@@ -104,13 +98,11 @@ function render() {
       "line",
     );
 
+    winningStroke.classList.add("winning-line__stroke");
     winningStroke.setAttribute("x1", String(startX));
     winningStroke.setAttribute("y1", String(startY));
     winningStroke.setAttribute("x2", String(endX));
     winningStroke.setAttribute("y2", String(endY));
-    winningStroke.setAttribute("stroke", "black");
-    winningStroke.setAttribute("stroke-width", "0.08");
-    winningStroke.setAttribute("stroke-linecap", "round");
 
     line.appendChild(winningStroke);
     boardEl.appendChild(line);
