@@ -3,19 +3,7 @@
  * This file gets compiled to tic-tac-toe.js, which index.html loads.
  */
 
-type Player = "X" | "O";
-type Cell = Player | null;
-
-const WIN_LINES: number[][] = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8], // rows
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8], // columns
-  [0, 4, 8],
-  [2, 4, 6], // diagonals
-];
+import { WIN_LINES, type Cell, type Player } from "./types";
 
 let board: Cell[] = Array(9).fill(null);
 let currentPlayer: Player = "X";
